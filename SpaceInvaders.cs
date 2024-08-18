@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Space_Invaders.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,50 +12,42 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
 namespace Space_Invaders
 {
-    public partial class SpaceInvaders : Form
+    public partial class SpaceInvadersWindow : Form
     {
 
         #region Paramiters
 
-        static int xDim = 600;
-        static int yDim = 400;
+        static int displayDimX = 60;
 
-        Bitmap backround = new Bitmap(xDim, yDim);
+        static int displayDimY = 40;
 
-        Color backroundColor = Color.Black;
+        Display display;
 
         #endregion
 
-        public SpaceInvaders()
+        public SpaceInvadersWindow()
         {
             InitializeComponent();
 
-            // Prepare The BLack Background BitMap
+            display = new Display(displayDimX,displayDimY);
 
-            DrawBackground();
+            InitalizeUserDisplay(); 
 
-            //Define The Picture Box Dimentions = To Bitmap.
-            //And Display Backgroun(black) Image On Startup.
-
-            display.Width = xDim;
-            display.Height = yDim;
-            display.Image = backround;
+           
 
         }
 
-        #region Methods
+		#region Methods
 
-        public void DrawBackground()
+		private void InitalizeUserDisplay()
         {
-            for (int x = 0; x < xDim; x++)
-            {
-                for (int y = 0; y < yDim; y++)
-                {
-                    backround.SetPixel(x, y, backroundColor);
-                }
-            }
+            userDisplay.Width = (displayDimX*2)-2;
+            userDisplay.Height = (displayDimY*2)-2;
+            userDisplay.Image = display.GetDisplayImage();
+
         }
 
-        #endregion
-    }
+
+		#endregion
+	}
 }

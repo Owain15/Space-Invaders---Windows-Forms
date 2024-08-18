@@ -1,6 +1,6 @@
 ﻿namespace Space_Invaders
 {
-    partial class SpaceInvaders
+    partial class SpaceInvadersWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.display = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.display)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // display
-            // 
-            this.display.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.display.Location = new System.Drawing.Point(88, 71);
-            this.display.Name = "display";
-            this.display.Size = new System.Drawing.Size(600, 400);
-            this.display.TabIndex = 0;
-            this.display.TabStop = false;
-            // 
-            // SpaceInvaders
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 544);
-            this.Controls.Add(this.display);
-            this.Name = "SpaceInvaders";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Space Invaders";
-            ((System.ComponentModel.ISupportInitialize)(this.display)).EndInit();
-            this.ResumeLayout(false);
+			this.userDisplay = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.userDisplay)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// userDisplay
+			// 
+			this.userDisplay.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			this.userDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.userDisplay.Location = new System.Drawing.Point(0, 0);
+			this.userDisplay.Name = "userDisplay";
+			this.userDisplay.Size = new System.Drawing.Size(778, 544);
+			this.userDisplay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.userDisplay.TabIndex = 0;
+			this.userDisplay.TabStop = false;
+			// 
+			// SpaceInvadersWindow
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(778, 544);
+			this.Controls.Add(this.userDisplay);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.Name = "SpaceInvadersWindow";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Space Invaders";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			((System.ComponentModel.ISupportInitialize)(this.userDisplay)).EndInit();
+			this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox display;
+        private System.Windows.Forms.PictureBox userDisplay;
     }
 }
 

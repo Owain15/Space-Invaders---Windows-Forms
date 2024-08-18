@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Display.cs" />
+    <Compile Include="Classes\RGB.cs" />
     <Compile Include="SpaceInvaders.cs">
       <SubType>Form</SubType>
     </Compile>

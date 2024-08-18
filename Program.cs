@@ -16,7 +16,7 @@ namespace Space_Invaders
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SpaceInvaders());
+            Application.Run(new SpaceInvadersWindow());
         }
     }
 }
