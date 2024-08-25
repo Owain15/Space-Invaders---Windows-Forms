@@ -12,7 +12,13 @@ namespace Space_Invaders.Classes
 		int xDim;
 		int yDim;
 
-		RGB[,] pixelData;
+		//RGB[,] pixelData;
+		int[,] pixelData;
+
+        int pixSize = 3;
+		int pixOffset = 1;
+
+		int pixComplete;
 
 		Bitmap display;
 		
@@ -21,10 +27,13 @@ namespace Space_Invaders.Classes
 			xDim = xDimention;
 			yDim = yDimention;
 
-			pixelData = new RGB[xDim, yDim];
+			pixComplete = pixSize + pixOffset;
+
+			//pixelData = new RGB[xDim, yDim];
+			pixelData = new int[xDim, yDim];
 			InitalizePixelData();
 
-			display = new Bitmap((xDim * 2) - 2, (yDim * 2) - 2);
+			display = new Bitmap((xDim * pixComplete) - pixOffset, (yDim * pixComplete) - pixOffset);
 			InitalizeDisplay();
 
 		}
@@ -43,12 +52,57 @@ namespace Space_Invaders.Classes
 			for (int y = 0; y < yDim; y++)
 			{
 				for (int x = 0; x < xDim; x++)
-				{ pixelData[x, y] = new RGB(0, 0, 0); }
+				//{ pixelData[x, y] = new RGB(0, 0, 0); }
+				{ pixelData[x, y] = 0; }
 			}
 		}
 
 		public Bitmap GetDisplayImage() { return display; }
 
+		public void SetNewDisplayImageTest()
+		{
+			
+			for (int y = 0; y < display.Height; y = y + pixComplete)
+			{
+				for (int x = 0; x < display.Width; x = x + pixComplete)
+				{
+					Color pixelColor = GetColorFromPixelData((x/pixComplete),(y/pixComplete));
+					
+					for (int pixY = 0; pixY < pixComplete; pixY++)
+					{
+						for (int pixX = 0; pixX < pixComplete; pixX++)
+						{
+							
+								if (pixX < pixSize && pixY < pixSize)
+								{ display.SetPixel((x + pixX), (y + pixY), pixelColor); }	
+						
+						}
+					}
+					
+				
+				
+				}
+			}
+
+		}
+
+		private Color GetColorFromPixelData(int pixelX,int pixelY)
+		{
+
+			switch(pixelData[pixelX,pixelY])
+			{
+				    case 0:return Color.DarkGray;
+					case 1:return Color.Blue;
+					case 2:return Color.Green;
+					case 3:return Color.Red;
+					case 4:return Color.Yellow;
+					
+				    default:return Color.White;
+			}
+			
+		}
+					
+					
 
 	}
 }

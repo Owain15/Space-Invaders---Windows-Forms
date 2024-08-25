@@ -17,9 +17,9 @@ namespace Space_Invaders
 
         #region Paramiters
 
-        static int displayDimX = 60;
+        static int displayDimX = 240;
 
-        static int displayDimY = 40;
+        static int displayDimY = 120;
 
         Display display;
 
@@ -31,11 +31,11 @@ namespace Space_Invaders
 
             display = new Display(displayDimX,displayDimY);
 
-            InitalizeUserDisplay(); 
+            InitalizeUserDisplay();
 
-           
+            UpdateDisplayTest();
 
-        }
+		}
 
 		#region Methods
 
@@ -46,7 +46,16 @@ namespace Space_Invaders
             userDisplay.Image = display.GetDisplayImage();
 
         }
+        private void UpdateDisplayTest()
+        {
+            display.SetNewDisplayImageTest();
+            userDisplay.Image = display.GetDisplayImage(); 
+        }
 
+        private void InitalizeRenderTimer()
+        { 
+        
+        }
 
 		#endregion
 	}

@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.components = new System.ComponentModel.Container();
 			this.userDisplay = new System.Windows.Forms.PictureBox();
+			this.RenderTimer = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.userDisplay)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -62,6 +64,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox userDisplay;
-    }
+		private System.Windows.Forms.Timer RenderTimer;
+	}
 }
 
